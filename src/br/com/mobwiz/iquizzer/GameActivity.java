@@ -58,21 +58,8 @@ public class GameActivity extends Activity implements OnItemClickListener {
         
     }
     void roundDown(Resposta r){
-        //verifica se acertou
-        boolean correta = r.isCorreta();
-        /*UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"iQuizzer" message:@"" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        if ([r.correta intValue] > 0) {
-            alert.message = @"Correta!";
-            correta = YES;
-        } else {
-            alert.message = @"Errada!";
-            correta = NO;
-        }
-        [alert show];*/
-        
-        //adiciona ao historico
-        //engine pushResultado_pergunta:currentPergunta resultado:correta];
-        engine.pushResultado_Pergunta(currentPergunta, correta);
+
+        engine.pushResultado(r);
         //incrementa pontuacao
         //chama roundUp
         roundUp();

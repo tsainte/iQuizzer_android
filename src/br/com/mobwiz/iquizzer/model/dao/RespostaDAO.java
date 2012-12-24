@@ -94,6 +94,7 @@ public class RespostaDAO extends SQLiteOpenHelper implements Serializable{
 				 respostas = new ArrayList<Resposta>();
 				do{
 					Resposta resposta = new Resposta(cursor.getInt(0), cursor.getString(1), Functions.intToBool(cursor.getInt(2)));
+					resposta.setPergunta(pergunta);
 					respostas.add(resposta);
 				} while(cursor.moveToNext());
 			}

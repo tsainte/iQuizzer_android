@@ -57,8 +57,6 @@ public class BaixarQuizzes extends ListActivity{
 	}
 	public void comprar(View v){
 
-		Toast toast = Toast.makeText(this, "le botao: " + v.getTag(), Toast.LENGTH_SHORT);
-		toast.show();
 		try {
 			quizDAO.downloadQuiz((Integer)v.getTag());
 		} catch (Exception e) {

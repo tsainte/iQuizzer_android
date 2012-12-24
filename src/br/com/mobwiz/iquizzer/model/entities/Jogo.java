@@ -9,7 +9,7 @@ public class Jogo implements Serializable{
 	String hora;
 	int pontos;
 	int id;
-	ArrayList<Resultado_Pergunta> resultado_perguntas;
+	ArrayList<Resultado> resultados;
 	public String getDia() {
 		return dia;
 	}
@@ -34,18 +34,17 @@ public class Jogo implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public ArrayList<Resultado_Pergunta> getResultado_perguntas() {
-		return resultado_perguntas;
+	public ArrayList<Resultado> getResultados() {
+		return resultados;
 	}
-	public void setResultado_perguntsa(
-			ArrayList<Resultado_Pergunta> resultado_perguntas) {
-		this.resultado_perguntas = resultado_perguntas;
+	public void setResultados(ArrayList<Resultado> resultado) {
+		this.resultados = resultado;
 	}
-	public void addResultado_Pergunta(Resultado_Pergunta rp) {
-		if (resultado_perguntas == null){
-			resultado_perguntas = new ArrayList <Resultado_Pergunta>();
+	public void addResultado(Resultado rp) {
+		if (resultados == null){
+			resultados = new ArrayList <Resultado>();
 		}
-		resultado_perguntas.add(rp);
+		resultados.add(rp);
 		
 	}
 

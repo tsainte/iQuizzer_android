@@ -9,7 +9,8 @@ import br.com.mobwiz.iquizzer.model.dao.PerguntaDAO;
 import br.com.mobwiz.iquizzer.model.entities.Jogo;
 import br.com.mobwiz.iquizzer.model.entities.Pergunta;
 import br.com.mobwiz.iquizzer.model.entities.Quiz;
-import br.com.mobwiz.iquizzer.model.entities.Resultado_Pergunta;
+import br.com.mobwiz.iquizzer.model.entities.Resposta;
+import br.com.mobwiz.iquizzer.model.entities.Resultado;
 
 public class GameEngine implements Serializable {
 	int currentRound;
@@ -61,9 +62,9 @@ public class GameEngine implements Serializable {
 		return pergunta;
 	}
 	
-	void pushResultado_Pergunta(Pergunta pergunta, boolean resultado){
-		Resultado_Pergunta rp = new Resultado_Pergunta(pergunta,resultado);
-		jogo.addResultado_Pergunta(rp);
+	void pushResultado(Resposta resposta){
+		Resultado rp = new Resultado(resposta);
+		jogo.addResultado(rp);
 		
 	}
 	/*
