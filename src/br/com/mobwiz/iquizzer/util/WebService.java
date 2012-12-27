@@ -17,6 +17,9 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class WebService  {
@@ -26,10 +29,25 @@ public class WebService  {
 	//final static int port = 80;
 	//final static String ip = "localhost";		
 	final static int port = 3000;
-	
+	Context context;
+	public WebService(Context context){
+		this.context = context;
+	}
+	public WebService(){
+		
+	}
+	private String getRequest(String parameter){
+		String request = parameter;
+		if (context != null){
+			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+			String token = preferences.getString("token", "");
+			 request = request + "?auth_token=" + token;
+		}
+		return request;
+	}
 	public String get(String parameters) throws Exception{
 		StringBuffer jsonBuilder = new StringBuffer();
-		String urlString = "http://"+ip+":"+port+"/"+parameters;
+		String urlString = "http://"+ip+":"+port+"/"+getRequest(parameters);
 		HttpClient client = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(urlString);
 		HttpResponse response = client.execute(httpGet);
@@ -52,7 +70,7 @@ public class WebService  {
 	public String RESTCommand(String parameters, String httpMethod, String jsonBody){
 	    String wResult = "";
 	    //mount parameters
-		String urlString = "http://"+ip+":"+port+"/"+parameters;
+		String urlString = "http://"+ip+":"+port+"/"+getRequest(parameters);
 		URL url;
 		try {
 			url = new URL(urlString);

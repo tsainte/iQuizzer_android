@@ -43,14 +43,14 @@ public class Login extends Activity {
 		
 		Authenticator auth = new Authenticator();
 		auth.context = this;
-		boolean success = auth.authenticate(username.getText().toString(), password.getText().toString());
-		if (success){
+		String status = auth.login(username.getText().toString(), password.getText().toString());
+		if (status.equalsIgnoreCase("ok")){
 			Intent it = new Intent(this,MenuActivity.class);
 			
 			startActivity(it);
 			finish();
 		} else{
-			Functions.toast(this, "Problemas para realizar o login...");
+			Functions.toast(this, status);
 		}
 	}
 }

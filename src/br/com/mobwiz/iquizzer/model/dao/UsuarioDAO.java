@@ -17,7 +17,7 @@ import android.util.Log;
 public class UsuarioDAO  extends SQLiteOpenHelper implements Serializable{
 	private SQLiteDatabase db;
 	Context context;
-	WebService webService = new WebService();
+	WebService webService;
 	
 	public UsuarioDAO(Context context, String name, CursorFactory factory,
 			int version) {

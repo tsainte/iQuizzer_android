@@ -32,7 +32,7 @@ public class Functions {
 	}
 	public static String currentTime() {
 		Calendar c = Calendar.getInstance(); 
-		String time = ""+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+"/"+c.get(Calendar.SECOND);
+		String time = ""+c.get(Calendar.HOUR)+":"+c.get(Calendar.MINUTE)+":"+c.get(Calendar.SECOND);
 
 		return time;
 	}

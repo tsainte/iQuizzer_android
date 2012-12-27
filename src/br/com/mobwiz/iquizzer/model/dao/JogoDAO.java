@@ -19,16 +19,17 @@ import br.com.mobwiz.iquizzer.util.WebService;
 public class JogoDAO extends SQLiteOpenHelper implements Serializable{
 	private SQLiteDatabase db;
 	Context context;
-	WebService webService = new WebService();
-	
+	WebService webService;
+
 	public JogoDAO(Context context, String name, CursorFactory factory,
 			int version) {
 		super(context, name, factory, version);
-		// TODO Auto-generated constructor stub
+
 	}
 	public JogoDAO(Context context){
 		super(context, "iQuizzer", null, 1);
 		this.context = context;
+		webService =  new WebService(context);
 		db = getWritableDatabase();
 	}
 	@Override
@@ -58,7 +59,7 @@ public class JogoDAO extends SQLiteOpenHelper implements Serializable{
 			jsonObject.put("hora", jogo.getHora());
 			jsonObject.put("pontos", jogo.getPontos());
 			jsonObject.put("resultados_attributes", jsonResultados);
-			jsonObject.put("usuario_id", usuario_id);
+			jsonObject.put("user_id", usuario_id);
 		} catch (Exception e ){
 			e.printStackTrace();
 		}

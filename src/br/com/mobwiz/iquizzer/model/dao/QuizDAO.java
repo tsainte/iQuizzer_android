@@ -17,7 +17,7 @@ import br.com.mobwiz.iquizzer.util.WebService;
 public class QuizDAO extends SQLiteOpenHelper implements Serializable{
 	private SQLiteDatabase db;
 	Context context;
-	WebService webService = new WebService();
+	WebService webService;
 	
 	public QuizDAO(Context context, String name, CursorFactory factory,
 			int version) {
@@ -27,6 +27,7 @@ public class QuizDAO extends SQLiteOpenHelper implements Serializable{
 	public QuizDAO(Context context){
 		super(context, "iQuizzer", null, 1);
 		this.context = context;
+		webService = new WebService(context);
 		db = getWritableDatabase();
 		
 	}
