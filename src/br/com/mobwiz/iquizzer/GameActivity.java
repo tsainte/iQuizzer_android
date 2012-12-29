@@ -15,6 +15,7 @@ import android.widget.TextView;
 import br.com.mobwiz.iquizzer.model.entities.Pergunta;
 import br.com.mobwiz.iquizzer.model.entities.Quiz;
 import br.com.mobwiz.iquizzer.model.entities.Resposta;
+import br.com.mobwiz.iquizzer.model.game.GameEngine;
 import br.com.mobwiz.iquizzer.util.Functions;
 
 public class GameActivity extends Activity implements OnItemClickListener {
@@ -60,7 +61,7 @@ public class GameActivity extends Activity implements OnItemClickListener {
     void roundDown(Resposta r){
 
         engine.pushResultado(r);
-        //incrementa pontuacao
+
         //chama roundUp
         roundUp();
     }
@@ -69,7 +70,7 @@ public class GameActivity extends Activity implements OnItemClickListener {
         engine.saveResults();
         engine.close(); //should be inside saveresults?
  		Intent i = new Intent(getApplicationContext(), GameOver.class);
- 		i.putExtra("jogo",engine.jogo);
+ 		i.putExtra("jogo",engine.getJogo());
  		startActivity(i);
         //engine = null;
         
@@ -88,7 +89,11 @@ public class GameActivity extends Activity implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
 		Resposta resposta = respostas.get(position);
-		Functions.toast(this, "correta: "+resposta.isCorreta());
+		if(resposta.isCorreta()){
+			Functions.toast(this, "Acertou");
+		} else {
+			Functions.toast(this, "Errou");
+		}
 		roundDown(resposta);
 	}
 

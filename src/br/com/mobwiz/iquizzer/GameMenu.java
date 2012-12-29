@@ -27,7 +27,7 @@ public class GameMenu extends Activity implements OnItemClickListener {
 			quizzes = quizDAO.findAll();
 			int size = 0;
 			if (quizzes != null) size = quizzes.size();
-			Functions.toast(this,"count quizzes: "+size);
+
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -53,7 +53,6 @@ public class GameMenu extends Activity implements OnItemClickListener {
 
 	@Override
 	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-		Functions.toast(this, "msg"+position);
 		Quiz quiz = quizzes.get(position);
  		Intent i = new Intent(getApplicationContext(), GameActivity.class);
  		i.putExtra("quiz",quiz);

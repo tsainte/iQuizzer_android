@@ -110,6 +110,21 @@ public class QuizDAO extends SQLiteOpenHelper implements Serializable{
 		}
 		return quizzes;
 	}
+	public Quiz find(int index){
+		String sql = "select * from quiz where id = "+index;
+		Quiz quiz = null;
+		Cursor cursor;
+		
+		try {
+			cursor = db.rawQuery(sql, null);
+			if (cursor.moveToFirst()){
+				quiz = new Quiz(cursor.getInt(0), cursor.getString(1));
+			} 
+		} catch(Exception e) {
+			return null;
+		}
+		return quiz;
+	}
 	public void open() {
 	    db = getWritableDatabase();
 	}

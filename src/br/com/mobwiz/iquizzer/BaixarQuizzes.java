@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import br.com.mobwiz.iquizzer.model.dao.QuizDAO;
 import br.com.mobwiz.iquizzer.model.entities.Quiz;
+import br.com.mobwiz.iquizzer.util.Functions;
 
 public class BaixarQuizzes extends ListActivity{
 	QuizDAO quizDAO;
@@ -51,14 +52,18 @@ public class BaixarQuizzes extends ListActivity{
 
 		//Recebe objeto clicado pelo usuario
 		String item = (String)super.getListAdapter().getItem(position);
-		Toast toast = Toast.makeText(this, item, Toast.LENGTH_SHORT);
-		toast.show();
 		
 	}
 	public void comprar(View v){
 
 		try {
 			quizDAO.downloadQuiz((Integer)v.getTag());
+			Functions.toast(this, "Instalado com sucesso!");
+			
+			Button button = (Button)v;
+			button.setText("Instalado");
+			button.setEnabled(false);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

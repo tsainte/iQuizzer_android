@@ -23,12 +23,12 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class WebService  {
-	final static String ip = "192.168.0.116"; //casa
+	//final static String ip = "192.168.0.116"; //casa
 	//final static String ip = "10.0.0.172"; //deti
-	//final static String ip = "iquizzer.herokuapp.com";
-	//final static int port = 80;
+	final static String ip = "iquizzer.herokuapp.com";
+	final static int port = 80;
 	//final static String ip = "localhost";		
-	final static int port = 3000;
+	//final static int port = 3000;
 	Context context;
 	public WebService(Context context){
 		this.context = context;

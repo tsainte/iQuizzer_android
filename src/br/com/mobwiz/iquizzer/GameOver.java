@@ -34,7 +34,7 @@ public class GameOver extends Activity {
 		
 		TextView txterros = (TextView) findViewById(R.id.lblErros);
 		txterros.setText("Erros: " + (5 - acertos));
-		saveResults();
+		//saveResults();
 		
 	}
 	private int countAcertos() {
@@ -51,12 +51,12 @@ public class GameOver extends Activity {
  		Intent i = new Intent(getApplicationContext(), MenuActivity.class);
  		//precisa matar as activites abertas!!
  		startActivity(i);
-	}
+	}/* moved to gameengine
 	public void saveResults(){
 		jogo.setDia(Functions.currentDate());
 		jogo.setHora(Functions.currentTime());
 		
 		jogo.setPontos(0);
 		jogoDAO.saveOnCloud(jogo);
-	}
+	}*/
 }

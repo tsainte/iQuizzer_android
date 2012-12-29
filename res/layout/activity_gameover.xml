@@ -43,15 +43,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
-        android:layout_marginBottom="16dp"
-        android:layout_toRightOf="@+id/lblErros"
-        android:text="Compartilhar no twitter" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,15 +51,6 @@
         android:layout_marginBottom="21dp"
         android:onClick="menu"
         android:text="Menu" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
-        android:text="Compartilhar no face" />
 
     <TextView
         android:id="@+id/textView1"

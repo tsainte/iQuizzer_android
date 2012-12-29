@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import br.com.mobwiz.iquizzer.model.dao.QuizDAO;
 import br.com.mobwiz.iquizzer.model.entities.Quiz;
 
 public class BaixarQuizAdapter extends ArrayAdapter{
@@ -37,7 +38,8 @@ public class BaixarQuizAdapter extends ArrayAdapter{
 
 	    	   
 	    	   titulo.setText(quiz.getTitulo());
-	    	   btnAction.setText("baixar");
+	    	  // btnAction.setText("Baixar");
+	    	   configureButton(btnAction,quiz.getId());
 	    	   btnAction.setTag(quiz.getId()); //to get index!!
 
 	       }
@@ -49,7 +51,23 @@ public class BaixarQuizAdapter extends ArrayAdapter{
 		   return quizzes.size();
 	   }
 	   public void configureButton(Button button, int id){
-		   
+		    /*if ([dao find:index]){ //se encontrar algum quiz
+		        [button setTitle:@"Instalado" forState:UIControlStateNormal];
+		        [button setEnabled:NO];
+		        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+		    } else {
+		        [button setTitle:@"Baixar" forState:UIControlStateNormal];
+		        [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+		        [button setEnabled:YES];
+		    }*/
+		   QuizDAO dao = new QuizDAO(context);
+		   if (dao.find(id) != null){
+			   button.setText("Instalado");
+			   button.setEnabled(false);
+		   } else {
+			   button.setText("Baixar");
+			   button.setEnabled(true);
+		   }
 	   }
 	  /* -(void)configureButton:(UIButton*)button forID:(NSNumber*)index{
 		    if ([dao find:index]){ //se encontrar algum quiz

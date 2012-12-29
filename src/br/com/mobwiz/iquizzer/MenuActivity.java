@@ -40,7 +40,7 @@ public class MenuActivity extends Activity implements DialogInterface.OnClickLis
     	options.add("meus quizzes");
     	options.add("baixar");
     	
-    	final CharSequence[] items = {"Criar", "Meus Quizzes", "Baixar"};
+    	final CharSequence[] items = {"Criar Quiz", "Meus Quizzes", "Baixar Quiz"};
     	
     	//criar listview, dialog.builder.....
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
